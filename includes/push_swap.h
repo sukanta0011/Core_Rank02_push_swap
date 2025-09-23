@@ -18,18 +18,29 @@
 # include <unistd.h>
 
 typedef unsigned int	t_uint;
+
 typedef struct s_dbl_ll
 {
-	int			data;
-	t_dbl_ll	*next;
-	t_dbl_ll	*prev;
+	int				data;
+	struct s_dbl_ll	*next;
+	struct s_dbl_ll	*prev;
 }				t_dbl_ll;
+
+typedef struct s_dll_info
+{
+	t_uint		size;
+	t_dbl_ll	*head;
+	t_dbl_ll	*tail;
+}				t_dll_info;
 
 
 //======%% operation_swap %%=========
-void	swap(int *arr);
+
 
 //======%% utils1 %%=========
-t_uint	arr_len(int *arr);
+void	dbl_ll_test(void);
+t_dbl_ll	*create_node(int data);
+t_dbl_ll	*add_at_back(t_dll_info *lst_info, int data);
+t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data);
 
 #endif

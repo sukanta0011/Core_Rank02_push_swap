@@ -12,18 +12,3 @@
 
 #include "push_swap.h"
 
-void	swap(int *arr)
-{
-	int	temp;
-
-	if (arr_len(arr) >= 2)
-	{
-		temp = arr[0];
-		arr[0] = arr[1];
-		arr[1] = temp;
-	}
-}
-
-void	push(int *src, int *dst)
-{
-}
