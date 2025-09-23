@@ -47,50 +47,50 @@ t_dbl_ll	*add_at_back(t_dll_info *lst_info, int data)
 	return (lst_info->head);
 }
 
-t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data)
-{
-	t_dbl_ll	*temp;
-	t_dbl_ll	*new_node;
+// t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data)
+// {
+// 	t_dbl_ll	*temp;
+// 	t_dbl_ll	*new_node;
 
-	new_node = create_node(data);
-	temp = lst_info->head;
-	if (temp)
-	{
-		lst_info->head = new_node;
-		temp->prev = new_node;
-		new_node->next = temp;
-	}
-	else
-	{
-		lst_info->head = new_node;
-		lst_info->tail = new_node;
-	}
-	lst_info->size++;
-	return (lst_info->head);
-}
+// 	new_node = create_node(data);
+// 	temp = lst_info->head;
+// 	if (temp)
+// 	{
+// 		lst_info->head = new_node;
+// 		temp->prev = new_node;
+// 		new_node->next = temp;
+// 	}
+// 	else
+// 	{
+// 		lst_info->head = new_node;
+// 		lst_info->tail = new_node;
+// 	}
+// 	lst_info->size++;
+// 	return (lst_info->head);
+// }
 
-t_dbl_ll	*del_front(t_dll_info *lst_info)
-{
-	t_dbl_ll	*temp;
+// t_dbl_ll	*del_front(t_dll_info *lst_info)
+// {
+// 	t_dbl_ll	*temp;
 
-	if (!lst_info || !lst_info->head)
-        return (NULL);
-	temp = lst_info->head;
-	if(lst_info->size > 1)
-	{
-		lst_info->head = temp->next;
-		temp->prev = NULL;
-		temp->next = NULL;
-	}
-	else
-	{
-		lst_info->head = NULL;
-		lst_info->tail = NULL;
-	}
-	free(temp);
-	lst_info->size--;
-	return (lst_info->head);
-}
+// 	if (!lst_info || !lst_info->head)
+//         return (NULL);
+// 	temp = lst_info->head;
+// 	if(lst_info->size > 1)
+// 	{
+// 		lst_info->head = temp->next;
+// 		temp->prev = NULL;
+// 		temp->next = NULL;
+// 	}
+// 	else
+// 	{
+// 		lst_info->head = NULL;
+// 		lst_info->tail = NULL;
+// 	}
+// 	free(temp);
+// 	lst_info->size--;
+// 	return (lst_info->head);
+// }
 
 t_dll_info	*init_lst_info(t_dll_info *lst_info)
 {
@@ -116,40 +116,4 @@ void	free_lst(t_dll_info *lst_info)
 		temp = next;
 	}
 	free(lst_info);
-}
-
-void	dbl_ll_test(void)
-{
-	t_dbl_ll	*lst_a;
-	// t_dbl_ll	*lst_b;
-	t_dll_info	*lst_a_info;
-	t_dbl_ll	*a;
-	t_dbl_ll	*b;
-	t_dbl_ll	*c;
-
-	lst_a_info = malloc(sizeof(t_dll_info));
-	a = create_node(5);
-	b = create_node(10);
-	c = create_node(3);
-
-	lst_a = a;
-	lst_a->next = b;
-	lst_a->prev = NULL;
-	lst_a->next->next = c;
-	lst_a->next->prev = a;
-	lst_a->next->next->prev = b;
-
-	printf("%s\n", "-----------a-----------");
-	lst_a_info->head = lst_a;
-	while (lst_a->next)
-	{
-		printf("%d\n", lst_a->data);
-		lst_a = lst_a->next;
-	}
-	printf("%d\n", lst_a->data);
-	lst_a_info->tail = lst_a;
-	lst_a = lst_a_info->head;
-	lst_a_info->size = 3;
-
-	printf("%d\n", lst_a_info->tail->data);
 }

@@ -12,43 +12,6 @@
 
 #include "push_swap.h"
 
-void	print_lst(t_dll_info *lst_info)
-{
-	t_dbl_ll	*temp;
-	
-	if (!lst_info->head)
-		return;
-	printf("Head: %d, Tail: %d, size: %d\n",
-			lst_info->head->data,
-			lst_info->tail->data,
-			lst_info->size);
-	temp = lst_info->head;
-	while (temp)
-	{
-		printf("%d\n", temp->data);
-		temp = temp->next;
-	}
-}
-
-void	print_lst_reverse(t_dll_info *lst_info)
-{
-	t_dbl_ll	*temp;
-
-	if (!lst_info->head)
-		return;
-	printf("Head: %d, Tail: %d, size: %d\n",
-			lst_info->head->data,
-			lst_info->tail->data,
-			lst_info->size);
-	
-	temp = lst_info->tail;
-	while (temp)
-	{
-		printf("%d\n", temp->data);
-		temp = temp->prev;
-	}
-}
-
 int	main(void)
 {
 	t_dbl_ll	*lst_a;
@@ -63,7 +26,7 @@ int	main(void)
 	lst_b_info = init_lst_info(lst_b_info);
 	for (int i = 0; arr[i]; i++)
 		lst_a = add_at_back(lst_a_info, arr[i]);
-	lst_b = add_at_front(lst_b_info, 50);
+	lst_b = add_at_back(lst_b_info, 50);
 	(void)lst_b;
 	(void)lst_a;
 

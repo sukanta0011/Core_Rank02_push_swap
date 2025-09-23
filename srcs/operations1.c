@@ -16,7 +16,7 @@ void	swap(t_dll_info *lst_info)
 {
 	t_dbl_ll	*temp;
 	int			temp_num;
-	
+
 	temp = lst_info->head;
 	if (lst_info->size > 1)
 	{
@@ -30,9 +30,9 @@ void	push(t_dll_info *src_info, t_dll_info *dst_info)
 {
 	t_dbl_ll	*src;
 	t_dbl_ll	*dst;
-	
+
 	if (!src_info->head || src_info->size < 1)
-		return;
+		return ;
 	src = src_info->head;
 	src_info->head = src->next;
 	if (src_info->head)
@@ -56,7 +56,7 @@ void	rotate(t_dll_info *lst_info)
 	t_dbl_ll	*tail;
 
 	if (!lst_info->head)
-		return;
+		return ;
 	if (lst_info->size > 1)
 	{
 		head = lst_info->head;
@@ -76,7 +76,7 @@ void	reverse_rotate(t_dll_info *lst_info)
 	t_dbl_ll	*tail;
 
 	if (!lst_info->head)
-		return;
+		return ;
 	if (lst_info->size > 1)
 	{
 		head = lst_info->head;
