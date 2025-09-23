@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 t_dbl_ll	*create_node(int data)
 {
 	t_dbl_ll	*new_node;
@@ -68,6 +67,55 @@ t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data)
 	}
 	lst_info->size++;
 	return (lst_info->head);
+}
+
+t_dbl_ll	*del_front(t_dll_info *lst_info)
+{
+	t_dbl_ll	*temp;
+
+	if (!lst_info || !lst_info->head)
+        return (NULL);
+	temp = lst_info->head;
+	if(lst_info->size > 1)
+	{
+		lst_info->head = temp->next;
+		temp->prev = NULL;
+		temp->next = NULL;
+	}
+	else
+	{
+		lst_info->head = NULL;
+		lst_info->tail = NULL;
+	}
+	free(temp);
+	lst_info->size--;
+	return (lst_info->head);
+}
+
+t_dll_info	*init_lst_info(t_dll_info *lst_info)
+{
+	lst_info = malloc(sizeof(t_dll_info));
+	if (!lst_info)
+		return (NULL);
+	lst_info->head = NULL;
+	lst_info->tail = NULL;
+	lst_info->size = 0;
+	return (lst_info);
+}
+
+void	free_lst(t_dll_info *lst_info)
+{
+	t_dbl_ll	*temp;
+	t_dbl_ll	*next;
+
+	temp = lst_info->head;
+	while (temp)
+	{
+		next = temp->next;
+		free (temp);
+		temp = next;
+	}
+	free(lst_info);
 }
 
 void	dbl_ll_test(void)

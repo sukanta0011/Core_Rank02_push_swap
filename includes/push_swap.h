@@ -35,12 +35,18 @@ typedef struct s_dll_info
 
 
 //======%% operation_swap %%=========
-
+void	swap(t_dll_info *lst_info);
+void	push(t_dll_info *src_info, t_dll_info *dst_info);
+void	rotate(t_dll_info *lst_info);
+void	reverse_rotate(t_dll_info *lst_info);
 
 //======%% utils1 %%=========
-void	dbl_ll_test(void);
+void		dbl_ll_test(void);
 t_dbl_ll	*create_node(int data);
 t_dbl_ll	*add_at_back(t_dll_info *lst_info, int data);
 t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data);
+t_dbl_ll	*del_front(t_dll_info *lst_info);
+t_dll_info	*init_lst_info(t_dll_info *lst_info);
+void		free_lst(t_dll_info *lst_info);
 
 #endif
