@@ -34,16 +34,21 @@ typedef struct s_dll_info
 }				t_dll_info;
 
 //======%% operation_swap %%=========
-void		swap(t_dll_info *lst_info);
-void		push(t_dll_info *src_info, t_dll_info *dst_info);
-void		rotate(t_dll_info *lst_info);
-void		reverse_rotate(t_dll_info *lst_info);
+int			swap(t_dll_info *lst_info);
+int			push(t_dll_info *src_info, t_dll_info *dst_info);
+int			rotate(t_dll_info *lst_info);
+int			reverse_rotate(t_dll_info *lst_info);
+int			operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct);
 
 //======%% print_list %%=========
 void		print_lst(t_dll_info *lst_info);
 void		print_lst_reverse(t_dll_info *lst_info);
 
 //======%% utils1 %%=========
+int			ft_strcmp(char *s1, char *s2);
+int			ft_atoi(char *str);
+
+//======%% lst_utils1 %%=========
 t_dbl_ll	*create_node(int data);
 t_dbl_ll	*add_at_back(t_dll_info *lst_info, int data);
 // t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data);
