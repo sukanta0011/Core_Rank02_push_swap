@@ -40,13 +40,18 @@ int			rotate(t_dll_info *lst_info);
 int			reverse_rotate(t_dll_info *lst_info);
 int			operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct);
 
+//======%% operation_swap %%=========
+void		sort_stack(t_dll_info *lst_a, t_dll_info *lst_b);
+
 //======%% print_list %%=========
 void		print_lst(t_dll_info *lst_info);
 void		print_lst_reverse(t_dll_info *lst_info);
+int			is_assending(t_dll_info *lst);
 
 //======%% utils1 %%=========
 int			ft_strcmp(char *s1, char *s2);
 int			ft_atoi(char *str);
+void		ft_putstr(char *str);
 
 //======%% lst_utils1 %%=========
 t_dbl_ll	*create_node(int data);

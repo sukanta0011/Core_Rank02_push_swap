@@ -26,6 +26,19 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
+void	ft_putstr(char *str)
+{
+	t_uint	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
+}
+
 int	ft_atoi(char *str)
 {
 	int			sign;
