@@ -19,9 +19,9 @@ void	print_lst(t_dll_info *lst_info)
 	if (!lst_info->head)
 		return ;
 	// printf ("Head: %d, Tail: %d, size: %d\n",
-		// lst_info->head->data,
-		// lst_info->tail->data,
-		// lst_info->size);
+	// 	lst_info->head->data,
+	// 	lst_info->tail->data,
+	// 	lst_info->size);
 	temp = lst_info->head;
 	while (temp)
 	{

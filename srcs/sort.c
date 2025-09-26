@@ -1,5 +1,24 @@
 #include "push_swap.h"
 
+int	*create_temp_array(t_dll_info *lst)
+{
+	t_dbl_ll	*current;
+	int			*arr;
+	t_uint		i;
+	
+	current = lst->head;
+	arr = malloc(sizeof(int) * lst->size);
+	i = 0;
+	if (!arr)
+		return (NULL);
+	while (current)
+	{
+		arr[i++] = current->data;
+		current = current->next;
+	}
+	return (arr);
+}
+
 void	sort_stack(t_dll_info *lst_a, t_dll_info *lst_b)
 {
 	t_uint	steps;

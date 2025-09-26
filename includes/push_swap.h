@@ -40,8 +40,13 @@ int			rotate(t_dll_info *lst_info);
 int			reverse_rotate(t_dll_info *lst_info);
 int			operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct);
 
+//======%% quick_sort %%=========
+t_uint	swap_array_elements(int *arr, t_uint low, t_uint high);
+void	quick_sort(int *arr, t_uint low, t_uint high);
+
 //======%% operation_swap %%=========
 void		sort_stack(t_dll_info *lst_a, t_dll_info *lst_b);
+int			*create_temp_array(t_dll_info *lst);
 
 //======%% print_list %%=========
 void		print_lst(t_dll_info *lst_info);
