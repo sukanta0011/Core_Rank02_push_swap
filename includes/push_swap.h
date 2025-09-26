@@ -22,13 +22,14 @@ typedef unsigned int	t_uint;
 typedef struct s_dbl_ll
 {
 	int				data;
+	int				index;
 	struct s_dbl_ll	*next;
 	struct s_dbl_ll	*prev;
 }				t_dbl_ll;
 
 typedef struct s_dll_info
 {
-	t_uint		size;
+	int			size;
 	t_dbl_ll	*head;
 	t_dbl_ll	*tail;
 }				t_dll_info;
@@ -41,10 +42,11 @@ int			reverse_rotate(t_dll_info *lst_info);
 int			operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct);
 
 //======%% quick_sort %%=========
-t_uint	swap_array_elements(int *arr, t_uint low, t_uint high);
-void	quick_sort(int *arr, t_uint low, t_uint high);
+t_uint		swap_array_elements(int *arr, t_uint low, t_uint high);
+void		quick_sort(int *arr, t_uint low, t_uint high);
 
 //======%% operation_swap %%=========
+void sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted);
 void		sort_stack(t_dll_info *lst_a, t_dll_info *lst_b);
 int			*create_temp_array(t_dll_info *lst);
 

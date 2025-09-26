@@ -11,7 +11,7 @@ void printRandoms(int min, int max, int count) {
 }
 
 int main() {
-    int min = -100, max = 100, count = 100;
+    int min = -100, max = 100, count = 200;
     printRandoms(min, max, count);
 	printf("\n");
     return 0;
