@@ -150,54 +150,38 @@ void sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted)
 }
 
 
-void	sort_stack(t_dll_info *lst_a, t_dll_info *lst_b)
+void	radix_sort(t_dll_info *lst_a, t_dll_info *lst_b)
 {
-	t_uint	steps;
+	int i;
+	int max_bits;
+	int	arr_size;
+	int	counts;
+	int steps;
 
+	max_bits = 0;
 	steps = 0;
-	(void)lst_b;
-	while (lst_a->size > 1)
+	i = 0;
+	arr_size = lst_a->size;
+	while ((arr_size >> max_bits) != 0)
+		max_bits++;
+	while (i < max_bits)
 	{
-		while ((lst_a->head->data > lst_a->tail->data)
-			|| (lst_a->head->data > lst_a->head->next->data))
+		counts = 0;
+		while (counts < arr_size)
 		{
-			if (lst_a->head->data > lst_a->tail->data)
-			{
-				operation (lst_a, lst_b, "ra");
-				steps++;
-			}
-			if ((lst_a->head->data > lst_a->head->next->data))
-			{
-				operation(lst_a, lst_b, "sa");
-				steps++;
-			}
+			if (((lst_a->head->index >> i) & 1) == 0)
+				operation(lst_a, lst_b, "pb");
+			else
+				operation(lst_a, lst_b, "ra");
+			counts++;
+			steps++;
 		}
-		operation(lst_a, lst_b, "pb");
-		steps++;
-		if (lst_b->size > 1)
+		while (lst_b->size > 0)
 		{
-			while ((lst_b->head->data < lst_b->tail->data)
-				|| (lst_b->head->data < lst_b->head->next->data))
-			{
-				if (lst_b->head->data < lst_b->tail->data)
-				{
-					operation (lst_a, lst_b, "rb");
-					steps++;
-				}
-				if ((lst_b->head->data < lst_b->head->next->data))
-				{
-					operation(lst_a, lst_b, "sb");
-					steps++;
-					operation(lst_a, lst_b, "pa");
-					steps++;
-				}
-			}
+			operation(lst_a, lst_b, "pa");
+			steps++;
 		}
-	}
-	while (lst_b->size)
-	{
-		operation(lst_a, lst_b, "pa");
-		steps++;
+		i++;
 	}
 	printf("Steps : %u\n", steps);
 }

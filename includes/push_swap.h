@@ -44,11 +44,12 @@ int			operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct);
 //======%% quick_sort %%=========
 t_uint		swap_array_elements(int *arr, t_uint low, t_uint high);
 void		quick_sort(int *arr, t_uint low, t_uint high);
+int			find_index(int *sorted, int value, int low, int high);
 
 //======%% operation_swap %%=========
-void sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted);
-void		sort_stack(t_dll_info *lst_a, t_dll_info *lst_b);
+void 		sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted);
 int			*create_temp_array(t_dll_info *lst);
+void		radix_sort(t_dll_info *lst_a, t_dll_info *lst_b);
 
 //======%% print_list %%=========
 void		print_lst(t_dll_info *lst_info);
@@ -67,5 +68,8 @@ t_dbl_ll	*add_at_back(t_dll_info *lst_info, int data);
 // t_dbl_ll	*del_front(t_dll_info *lst_info);
 t_dll_info	*init_lst_info(t_dll_info *lst_info);
 void		free_lst(t_dll_info *lst_info);
+
+//======%% parse_array %%=========
+void	assign_index(t_dll_info *lst, int *sorted);
 
 #endif

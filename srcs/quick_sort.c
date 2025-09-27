@@ -31,6 +31,23 @@ int	*create_temp_array(t_dll_info *lst)
 	return (arr);
 }
 
+int	find_index(int *sorted, int value, int low, int high)
+{
+	int mid;
+
+	mid = low + (high - low)/2;
+	if (value == sorted[mid])
+		return (mid);
+	if (low <= high)
+	{
+		if (value > sorted[mid])
+			return (find_index (sorted, value, mid + 1, high));
+		else
+			return (find_index (sorted, value, low, mid - 1));
+	}
+	return (-1);
+}
+
 void	swap_values(int *a, int *b)
 {
 	int	temp;

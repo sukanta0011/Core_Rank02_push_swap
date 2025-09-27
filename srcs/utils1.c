@@ -61,3 +61,4 @@ int	ft_atoi(char *str)
 	}
 	return (sign * num_int);
 }
+
