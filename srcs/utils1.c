@@ -35,18 +35,26 @@ void	ft_putstr(char *str)
 	write(1, "\n", 1);
 }
 
-int	ft_atoi(char *str)
+void	ft_puterror(char *str)
+{
+	t_uint	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+	write(2, "\n", 1);
+}
+
+int	str_to_num(char *str, int *num)
 {
 	int			sign;
 	int			i;
-	long int	num_int;
 
 	i = 0;
 	sign = 1;
-	num_int = 0;
-	while (str[i] != '\0' && ((str[i] >= '\t'
-				&& str[i] <= '\r') || str[i] == ' '))
-		i++;
 	if (str[i] == '-')
 	{
 		sign *= -1;
@@ -54,11 +62,16 @@ int	ft_atoi(char *str)
 	}
 	else if (str[i] == '+')
 		i++;
-	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	while (str[i] != '\0')
 	{
-		num_int = num_int * 10 + (str[i] - '0');
-		i++;
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			(*num) = (*num) * 10 + (str[i] - '0');
+			i++;
+		}
+		else
+			return (0);
 	}
-	return (sign * num_int);
+	(*num) = (*num) * sign;
 }
 

@@ -72,7 +72,6 @@ int find_largest_in_b(t_dll_info *lst_b)
     return best_idx;
 }
 
-
 void sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted)
 {
     int	top_dist;
@@ -86,7 +85,7 @@ void sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted)
 	int pushed_in_chunk = 0;
 
     n =  lst_a->size;
-	chunk_size = 25;
+	chunk_size = 3;
 	low = 0;
 	high = chunk_size - 1;
 	steps = 0;
@@ -149,7 +148,6 @@ void sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted)
 	printf("Steps : %u\n", steps);
 }
 
-
 void	radix_sort(t_dll_info *lst_a, t_dll_info *lst_b)
 {
 	int i;
@@ -184,4 +182,21 @@ void	radix_sort(t_dll_info *lst_a, t_dll_info *lst_b)
 		i++;
 	}
 	printf("Steps : %u\n", steps);
+}
+
+void	sort_small_stack(t_dll_info *lst_a, t_dll_info *lst_b)
+{
+	(void)lst_b;
+	if (lst_a->size == 2)
+	{
+		if (lst_a->head->data > lst_a->head->next->data)
+			operation(lst_a, lst_b, "sa");
+	}
+	if (lst_a->size == 3)
+	{
+		while (lst_a->tail->index != 2)
+			operation(lst_a, lst_b, "ra");
+		if (lst_a->head->index != 0)
+			operation(lst_a, lst_b, "sa");
+	}
 }

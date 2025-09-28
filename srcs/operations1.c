@@ -99,7 +99,7 @@ int	operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct)
 	// print_lst(lst_a);
 	// print_lst(lst_b);
 	// printf("-----------------------------\n");
-	// ft_putstr(instruct);
+	ft_putstr(instruct);
 	if (!ft_strcmp(instruct, "sa"))
 		return (swap(lst_a));
 	if (!ft_strcmp(instruct, "sb"))

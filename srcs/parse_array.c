@@ -24,3 +24,24 @@ void	assign_index(t_dll_info *lst, int *sorted)
 		current = current->next;
 	}
 }
+
+int	store_in_stack(int argc, char **argv, t_dll_info *lst_info)
+{
+	int	i;
+	int	num[1];
+
+	i = 1;
+	if (argc < 2)
+		return (0);
+	while (i < argc)
+	{
+		if (str_to_num(argv[i], num))
+		{
+			add_at_back(lst_info, num);
+			i++;
+		}
+		else
+			return (0);
+	}
+	return (1);
+}

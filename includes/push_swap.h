@@ -50,6 +50,7 @@ int			find_index(int *sorted, int value, int low, int high);
 void 		sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted);
 int			*create_temp_array(t_dll_info *lst);
 void		radix_sort(t_dll_info *lst_a, t_dll_info *lst_b);
+void		sort_small_stack(t_dll_info *lst_a, t_dll_info *lst_b);
 
 //======%% print_list %%=========
 void		print_lst(t_dll_info *lst_info);
@@ -58,8 +59,9 @@ int			is_assending(t_dll_info *lst);
 
 //======%% utils1 %%=========
 int			ft_strcmp(char *s1, char *s2);
-int			ft_atoi(char *str);
+int			str_to_num(char *str, int *num);
 void		ft_putstr(char *str);
+void		ft_puterror(char *str);
 
 //======%% lst_utils1 %%=========
 t_dbl_ll	*create_node(int data);
