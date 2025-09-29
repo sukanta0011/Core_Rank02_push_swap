@@ -17,7 +17,7 @@ int	*create_temp_array(t_dll_info *lst)
 	t_dbl_ll	*current;
 	int			*arr;
 	t_uint		i;
-	
+
 	current = lst->head;
 	arr = malloc(sizeof(int) * lst->size);
 	i = 0;
@@ -29,23 +29,6 @@ int	*create_temp_array(t_dll_info *lst)
 		current = current->next;
 	}
 	return (arr);
-}
-
-int	find_index(int *sorted, int value, int low, int high)
-{
-	int mid;
-
-	mid = low + (high - low)/2;
-	if (value == sorted[mid])
-		return (mid);
-	if (low <= high)
-	{
-		if (value > sorted[mid])
-			return (find_index (sorted, value, mid + 1, high));
-		else
-			return (find_index (sorted, value, low, mid - 1));
-	}
-	return (-1);
 }
 
 void	swap_values(int *a, int *b)
@@ -81,10 +64,10 @@ t_uint	swap_array_elements(int *arr, t_uint low, t_uint high)
 
 void	quick_sort(int *arr, t_uint low, t_uint high)
 {
+	t_uint	pivot;
+
 	if (low < high)
 	{
-		t_uint	pivot;
-		
 		pivot = swap_array_elements(arr, low, high);
 		if (pivot > 0)
 			quick_sort(arr, low, pivot - 1);

@@ -48,13 +48,14 @@ void	ft_puterror(char *str)
 	write(2, "\n", 1);
 }
 
-int	str_to_num(char *str, int *num)
+int	str_to_num(char *str, long int *num)
 {
 	int			sign;
 	int			i;
 
 	i = 0;
 	sign = 1;
+	*num = 0;
 	if (str[i] == '-')
 	{
 		sign *= -1;
@@ -73,5 +74,5 @@ int	str_to_num(char *str, int *num)
 			return (0);
 	}
 	(*num) = (*num) * sign;
+	return (1);
 }
-

@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_num_generator.c                             :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudas <sudas@student.42prague.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 13:50:08 by sudas             #+#    #+#             */
-/*   Updated: 2025/09/29 13:50:08 by sudas            ###   ########.fr       */
+/*   Created: 2025/09/29 13:25:40 by sudas             #+#    #+#             */
+/*   Updated: 2025/09/29 13:25:40 by sudas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include "push_swap.h"
 
-void	print_randoms(int min, int max, int count)
+void	free_lst(t_dll_info *lst_info)
 {
-	int	rd_num;
-	int	i;
+	t_dbl_ll	*temp;
+	t_dbl_ll	*next;
 
-	i = 0;
-	while (i < count)
+	temp = lst_info->head;
+	while (temp)
 	{
-		rd_num = rand() % (max - min + 1) + min;
-		printf("%d ", rd_num);
-		i++;
+		next = temp->next;
+		free (temp);
+		temp = next;
 	}
-}
-
-int	main(void)
-{
-	int	min;
-	int	max;
-	int	count;
-
-	min = -1000;
-	max = 1000;
-	count = 100;
-	print_randoms(min, max, count);
-	printf("\n");
-	return (0);
+	free(lst_info);
 }

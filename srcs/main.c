@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		sorted_arr = create_temp_array(lst_a_info);
 		quick_sort(sorted_arr, 0, argc - 2);
 		assign_index(lst_a_info, sorted_arr);
-		sort_by_chunks(lst_a_info, lst_b_info, sorted_arr);
+		sort_stack(lst_a_info, lst_b_info);
 		// sort_small_stack(lst_a_info, lst_b_info);
 		// sort_stack(lst_a_info, lst_b_info);
 		// radix_sort(lst_a_info, lst_b_info);
@@ -38,7 +38,11 @@ int	main(int argc, char **argv)
 			printf("Sorted\n");
 		else
 			printf("Not-Sorted\n");
-		free_lst(lst_a_info);
-		free_lst(lst_b_info);
+		free(sorted_arr);
 	}
+	else
+		ft_puterror("Error");
+	free_lst(lst_a_info);
+	free_lst(lst_b_info);
+	return (0);
 }

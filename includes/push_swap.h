@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 typedef unsigned int	t_uint;
 
 typedef struct s_dbl_ll
@@ -44,34 +47,48 @@ int			operation(t_dll_info *lst_a, t_dll_info *lst_b, char *instruct);
 //======%% quick_sort %%=========
 t_uint		swap_array_elements(int *arr, t_uint low, t_uint high);
 void		quick_sort(int *arr, t_uint low, t_uint high);
+int			*create_temp_array(t_dll_info *lst);
+
+//======%% search_idx %%=========
 int			find_index(int *sorted, int value, int low, int high);
+int			find_from_top(t_dll_info *lst_a, int low, int high);
+int			find_from_bottom(t_dll_info *lst_a, int low, int high);
+int			find_largest_in_b(t_dll_info *lst_b);
 
 //======%% operation_swap %%=========
-void 		sort_by_chunks(t_dll_info *lst_a, t_dll_info *lst_b, int *sorted);
-int			*create_temp_array(t_dll_info *lst);
-void		radix_sort(t_dll_info *lst_a, t_dll_info *lst_b);
-void		sort_small_stack(t_dll_info *lst_a, t_dll_info *lst_b);
+void		sort_three_stack(t_dll_info *lst_a, t_dll_info *lst_b);
+void		sort_stack(t_dll_info *lst_a, t_dll_info *lst_b);
 
-//======%% print_list %%=========
+//======%% radix_sort %%=========
+void		radix_sort(t_dll_info *lst_a, t_dll_info *lst_b);
+//======%% additional_func %%=========
 void		print_lst(t_dll_info *lst_info);
 void		print_lst_reverse(t_dll_info *lst_info);
 int			is_assending(t_dll_info *lst);
 
+//======%% chunk_sort %%=========
+void		push_single_value(t_dll_info *lst_a, t_dll_info *lst_b,
+				int low, int high);
+void		chunk_sort(t_dll_info *lst_a, t_dll_info *lst_b);
+
 //======%% utils1 %%=========
 int			ft_strcmp(char *s1, char *s2);
-int			str_to_num(char *str, int *num);
+int			str_to_num(char *str, long int *num);
 void		ft_putstr(char *str);
 void		ft_puterror(char *str);
 
 //======%% lst_utils1 %%=========
 t_dbl_ll	*create_node(int data);
 t_dbl_ll	*add_at_back(t_dll_info *lst_info, int data);
-// t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data);
-// t_dbl_ll	*del_front(t_dll_info *lst_info);
+t_dbl_ll	*add_at_front(t_dll_info *lst_info, int data);
+t_dbl_ll	*del_front(t_dll_info *lst_info);
 t_dll_info	*init_lst_info(t_dll_info *lst_info);
+
+//======%% free_memory %%=========
 void		free_lst(t_dll_info *lst_info);
 
 //======%% parse_array %%=========
-void	assign_index(t_dll_info *lst, int *sorted);
+void		assign_index(t_dll_info *lst, int *sorted);
+int			store_in_stack(int argc, char **argv, t_dll_info *lst_info);
 
 #endif

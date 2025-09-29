@@ -18,10 +18,10 @@ void	print_lst(t_dll_info *lst_info)
 
 	if (!lst_info->head)
 		return ;
-	// printf ("Head: %d, Tail: %d, size: %d\n",
-	// 	lst_info->head->data,
-	// 	lst_info->tail->data,
-	// 	lst_info->size);
+	printf ("Head: %d, Tail: %d, size: %d\n",
+		lst_info->head->data,
+		lst_info->tail->data,
+		lst_info->size);
 	temp = lst_info->head;
 	while (temp)
 	{
@@ -52,7 +52,7 @@ void	print_lst_reverse(t_dll_info *lst_info)
 
 int	is_assending(t_dll_info *lst)
 {
-	t_dbl_ll *current;
+	t_dbl_ll	*current;
 
 	current = lst->head;
 	while (current->next)
